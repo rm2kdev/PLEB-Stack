@@ -1,0 +1,12 @@
+<%  if (flash != {}) {
+        for(property in flash){
+            flash[property].forEach(function(item){
+%>
+
+        <p><strong><%=property%>:</strong> <%=item%></p>
+
+<%
+            })
+        }
+    }
+%>
