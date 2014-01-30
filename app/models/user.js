@@ -21,8 +21,9 @@ userSchema.statics.registerUser = function(username, password, email, name, cb) 
 };
 
 userSchema.methods.validPassword = function(password, cb) {
-    bcrypt.compare(password, this.hash, function(err, same) {
-        cb(!err && same);
+    bcrypt.compare(password, this.password, function(err, same) {
+        if(err){cb(false)}
+        else{ cb(same) }
     });
 };
 //

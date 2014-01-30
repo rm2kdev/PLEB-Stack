@@ -9,10 +9,17 @@ module.exports = function routes() {
 
     //Match Pages
     this.match('/', 'pages#main');
+
+    //Match Auth
     this.match('/register', 'pages#register');
     this.match('/login', 'pages#login');
 
+    //Match Dashboard
+    this.match('/dashboard', 'dashboard#dashboard');
+
+
     //Match Api
     this.match('/auth/register', 'auth#register', { via: ['post'] });
+    this.match('/auth/login', 'auth#login', { via: ['post'] });
 
 }

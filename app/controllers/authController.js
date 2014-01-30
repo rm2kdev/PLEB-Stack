@@ -1,9 +1,10 @@
 var locomotive = require('locomotive')
-  , Controller = locomotive.Controller;
+var Controller = locomotive.Controller;
+var passport = require("passport")
 
-var pagesController = new Controller();
+var authController = new Controller();
 
-pagesController.register = function() {
+authController.register = function() {
     var controller = this;
 
     console.log(controller.req.body)
@@ -22,8 +23,12 @@ pagesController.register = function() {
 
 }
 
-pagesController.login = function() {
-    this.render();
+authController.login = function() {
+    var controller = this;
+    controller.req.flash("success", "thanks for logging in!!")
+    controller.res.redirect("/dashboard")
 }
+authController.before('login', passport.authenticate('local', { failureRedirect: '/login', failureFlash: true }))
 
-module.exports = pagesController;
+
+module.exports = authController;
