@@ -6,24 +6,28 @@ var userSchema = new mongoose.Schema({
     password: String,
     email: String,
     name: String,
-    active : Boolean
+    active: Boolean
 });
 
-userSchema.statics.registerUser = function(username, password, email, name, cb) {
+userSchema.statics.registerUser = function (username, password, email, name, cb) {
     var Model = this;
 
-    bcrypt.hash(password, 8, function(err, hash) {
-        var user = new Model({ username:username, password:hash, email:email, name:name, active:true});
+    bcrypt.hash(password, 8, function (err, hash) {
+        var user = new Model({ username: username, password: hash, email: email, name: name, active: true});
         user.save(function (err) {
             cb(err, user);
         });
     });
 };
 
-userSchema.methods.validPassword = function(password, cb) {
-    bcrypt.compare(password, this.password, function(err, same) {
-        if(err){cb(false)}
-        else{ cb(same) }
+userSchema.methods.validPassword = function (password, cb) {
+    bcrypt.compare(password, this.password, function (err, same) {
+        if (err) {
+            cb(false)
+        }
+        else {
+            cb(same)
+        }
     });
 };
 //

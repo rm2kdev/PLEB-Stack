@@ -5,10 +5,10 @@ var passport = require('passport');
 var flash = require('connect-flash');
 
 console.log("Initializing Middleware");
-module.exports = function() {
-  // Use middleware.  Standard [Connect](http://www.senchalabs.org/connect/)
-  // middleware is built-in, with additional [third-party](https://github.com/senchalabs/connect/wiki)
-  // middleware available as separate modules.
+module.exports = function () {
+    // Use middleware.  Standard [Connect](http://www.senchalabs.org/connect/)
+    // middleware is built-in, with additional [third-party](https://github.com/senchalabs/connect/wiki)
+    // middleware available as separate modules.
 //  if ('development' == this.env) {
 //    this.use(express.logger());
 //  }
@@ -29,7 +29,7 @@ module.exports = function() {
     this.use(passport.session());
 
     this.use(flash())
-    this.use(function(req, res, next) {
+    this.use(function (req, res, next) {
         res.locals.flash = req.flash();
         next();
     });

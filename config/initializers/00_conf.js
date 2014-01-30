@@ -8,7 +8,7 @@ module.exports = conf = {
     demo: {    },
 
     development: {
-        database_connection:    "mongodb://localhost:27017/lempframework"
+        database_connection: "mongodb://localhost:27017/lempframework"
     }
 
 }

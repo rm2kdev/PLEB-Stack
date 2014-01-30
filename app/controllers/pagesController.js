@@ -1,17 +1,17 @@
 var locomotive = require('locomotive')
-  , Controller = locomotive.Controller;
+    , Controller = locomotive.Controller;
 
 var pagesController = new Controller();
 
-pagesController.main = function() {
+pagesController.main = function () {
     this.render();
 }
 
-pagesController.register = function() {
+pagesController.register = function () {
     this.render();
 }
 
-pagesController.login = function() {
+pagesController.login = function () {
     this.render();
 }
 
